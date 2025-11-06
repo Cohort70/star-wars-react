@@ -12,13 +12,13 @@ const Contact = () => {
         setPlanets(planets);
         localStorage.setItem('planets', JSON.stringify({
             payload: planets,
-            time: Date.now()
+            timestamp: Date.now()
         }));
     }
 
     useEffect(() => {
         const planets = JSON.parse(localStorage.getItem('planets'));
-        if (planets && ((Date.now() - planets.time) < period_month)) {
+        if (planets && ((Date.now() - planets.timestamp) < period_month)) {
             setPlanets(planets.payload);
         } else {
             getPlanets().then(() => console.log('Planets were loaded'));
