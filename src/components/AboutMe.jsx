@@ -4,7 +4,7 @@ import {base_url, period_month} from "../utils/constants.js";
 const AboutMe = () => {
     const [hero, setHero] = useState();
     useEffect(() => {
-        const hero = JSON.parse(localStorage.getItem('hero'));
+        const hero = JSON.parse(localStorage.getItem("hero"));
         if (hero && ((Date.now() - hero.timestamp) < period_month)) {
             setHero(hero.payload);
         } else {
@@ -22,9 +22,9 @@ const AboutMe = () => {
                         eye_color: data.eye_color
                     }
                     setHero(info);
-                    localStorage.setItem('hero', JSON.stringify({
-                        timestamp: Date.now(),
-                        payload: info
+                    localStorage.setItem("hero", JSON.stringify({
+                        payload: info,
+                        timestamp: Date.now()
                     }));
                 })
         }
@@ -33,15 +33,10 @@ const AboutMe = () => {
     return (
         <>
             {(!!hero) &&
-                <div className='fs-2 lh-lg text-justify ms-5'>
-                    <p><span className='display-3'>name:</span> {hero.name}</p>
-                    <p><span className='display-3'>gender:</span> {hero.gender}</p>
-                    <p><span className='display-3'>birth year:</span> {hero.birth_year}</p>
-                    <p><span className='display-3'>height:</span> {hero.height}</p>
-                    <p><span className='display-3'>mass:</span> {hero.mass}</p>
-                    <p><span className='display-3'>hair color:</span> {hero.hair_color}</p>
-                    <p><span className='display-3'>skin color:</span> {hero.skin_color}</p>
-                    <p><span className='display-3'>eye color:</span> {hero.eye_color}</p>
+                <div className={'text-[2em] text-justify tracking-widest leading-14 ml-8'}>
+                    {Object.keys(hero).map(key => <p key={key}>
+                        <span className={'text-3xl capitalize'}>{key.replace('_', ' ')}</span>: {hero[key]}
+                    </p>)}
                 </div>
             }
         </>
