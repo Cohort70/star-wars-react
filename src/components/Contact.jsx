@@ -1,4 +1,3 @@
-import '../Contact.css'
 import {useEffect, useState} from "react";
 import {base_url, period_month} from "../utils/constants.js";
 
@@ -29,22 +28,22 @@ const Contact = () => {
         <form className={`w-4/5 my-0 mx-auto rounded-[5px] bg-[#f2f2f2] p-5`} onSubmit={(e) => {
             e.preventDefault();
         }}>
-            <label className={`w-full text-red-color`}>First Name
+            <label className={`w-full text-red`}>First Name
                 <input className={`text-black border w-full p-3 border-[#ccc] rounded-[4px] mt-1.5 mb-4 resize-y`} type="text"
                        name="firstname" placeholder="Your first name..."/>
             </label>
-            <label className={`w-full text-red-color`}>Last Name
+            <label className={`w-full text-red`}>Last Name
                 <input className={`text-black border w-full p-3 border-[#ccc] rounded-[4px] mt-1.5 mb-4 resize-y`} type="text"
                        name="lastname" placeholder="Your last name..."/>
             </label>
-            <label className={`w-full text-red-color`}>Planet
+            <label className={`w-full text-red`}>Planet
                 <select className={`border w-full text-black p-3 border-[#ccc] rounded-[4px] mt-1.5 mb-4 resize-y`}
                         name="planet">{
                     planets.map(item => <option value={item} key={item}>{item}</option>)
                 }
                 </select>
             </label>
-            <label className={`w-full text-red-color`}>Subject
+            <label className={`w-full text-red`}>Subject
                 <textarea className={`text-black border h-52 w-full p-3 border-[#ccc] rounded-[4px] mt-1.5 mb-4 resize-y`}
                           name="subject" placeholder="Write something..."/>
             </label>
